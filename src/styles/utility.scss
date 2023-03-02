@@ -1,0 +1,31 @@
+// - Utility Classes
+//  -- Buttons
+
+//   -- Base
+.base-btn {
+  @apply rounded border py-2 px-4 text-sm font-medium shadow;
+}
+
+//   -- Styled
+.accent-btn {
+  @apply base-btn border-accent bg-accent text-light hover:bg-accent-600;
+}
+
+.default-btn {
+  @apply base-btn border-gray-300 bg-white text-dark hover:bg-gray-50;
+}
+
+// Text Buttons
+.txt-btn {
+  @apply inline-flex items-center gap-x-1.5 rounded font-semibold py-1 text-sm bg-opacity-0 cursor-pointer;
+}
+
+// Fab Button
+
+.fab-btn-base {
+  @apply inline-flex items-center rounded-full border border-transparent p-3 shadow-md;
+}
+
+.fab-btn-accent {
+  @apply fab-btn-base text-white bg-accent hover:bg-accent-600;
+}
