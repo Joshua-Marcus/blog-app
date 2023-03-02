@@ -61,6 +61,9 @@ MIT
 @ngneat/overview
 MIT
 
+@ngrx/component-store
+MIT
+
 @wry/context
 MIT
 MIT License
