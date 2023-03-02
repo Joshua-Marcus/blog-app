@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeletePostMutation } from '@graph/posts';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -24,7 +24,7 @@ import { PostsStore } from 'src/app/state/posts/posts.store';
   providers: [PostsStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent {
   readonly posts$ = this.store.posts$;
 
   constructor(
@@ -33,10 +33,6 @@ export class PostsListComponent implements OnInit {
     private deleteMutation: DeletePostMutation,
     private t: HotToastService
   ) {}
-
-  ngOnInit() {
-    this.store.fetchAll();
-  }
 
   routeToEditPost($event: Event) {
     this.router.navigate([`/posts/edit/${$event}`]);
