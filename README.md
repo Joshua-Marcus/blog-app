@@ -15,7 +15,6 @@ Angular application that displays a list of posts with basic CRUD functionality.
 - Angular
 - Apollo
 - Tailwind CSS
-- NgRx
 - RxJS
 
 ## Local Development
