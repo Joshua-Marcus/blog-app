@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { PostQuery, UpdatePostMutation } from '@graph/posts';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -21,6 +21,7 @@ import { map, switchMap, tap } from 'rxjs/operators';
       </div>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditPostComponent implements OnInit {
   post: Post;

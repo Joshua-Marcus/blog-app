@@ -1,21 +1,11 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: Deploy App to GitHub Pages
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: ["master"]
-  pull_request:
-    branches: ["master"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
     steps:
@@ -23,10 +13,10 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
       - name: Angular Blog App
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2 ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
           build_configuration: production
-          base_href: /ng-blog-app/ # make sure this corresponds to https://<your_username>.github.io/<base_href>/
-          deploy_branch: gh-pages # The branch the action should deploy to.
-          angular_dist_build_folder: dist/posts-app # The folder where your project is supposed to be after running ng build by the action.
+          base_href: /blog-app/
+          deploy_branch: gh-pages
+          angular_dist_build_folder: dist/blog-app
