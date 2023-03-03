@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Post } from '@types';
 
 @Component({
@@ -30,11 +31,14 @@ import { Post } from '@types';
           name="body"
           placeholder="Input the body content of your post"
           label="Body"
+          [rows]="10"
         >
         </form-textarea>
       </div>
       <div class="flex justify-end space-x-3">
-        <button type="button" class="default-btn">Cancel</button>
+        <button (click)="navigateBack()" type="button" class="default-btn">
+          Cancel
+        </button>
         <button type="submit" class="accent-btn">Submit</button>
       </div>
     </form>
@@ -50,7 +54,7 @@ export class PostsForm implements OnInit {
 
   postFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   async ngOnInit() {
     const c = this.initialModel;
@@ -58,6 +62,10 @@ export class PostsForm implements OnInit {
       throw new Error('Must set "initialModel"');
     }
     this.makeForm(c);
+  }
+
+  navigateBack() {
+    this.router.navigate(['/']);
   }
 
   makeForm(p: Post) {
